@@ -1,0 +1,32 @@
+:root{
+    --divider-border-style: slashes;
+    --divider-color: #000;
+    --divider-border-width: 1px;
+    --divider-pattern-height: 12px;
+    --divider-pattern-size: 12px;
+}
+.nav-btn{
+  border-color: #ffffff36
+}
+.main{
+  background-color: #1C1C1C;
+  background-image: url('https://www.twosqft.com/wp-content/uploads/2022/03/patt.svg');
+}
+.toggled-menu{
+  background-color: #1C1C1C;
+}
+.collab{
+  background-image: url('https://www.twosqft.com/wp-content/uploads/2022/04/Drawing.png');
+  background-repeat: no-repeat;
+  background-position: 170% 120%;
+  background-size: 70% auto;
+
+}
+.grid p{
+  color: azure;
+}
+@media (max-width: 1000px) {
+  .collab{
+    background-position: 60% 0%;
+  }
+  }
