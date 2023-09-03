@@ -4,6 +4,7 @@ import { faBars, faTimes, faChevronRight,faPhone, faEnvelope, faMapMarker } from
 import { faPinterest, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { motion , AnimatePresence} from 'framer-motion';
 import { Parallax } from 'react-scroll-parallax';
+import { Link } from 'react-router-dom';
 
 const CustomBurgerIcon = () => (
         <svg
@@ -37,7 +38,7 @@ const CustomBurgerIcon = () => (
       />
     </svg>
   );
-const Navbar = ({setIsCollapOpen , isCollabOpen}) => {
+const Navbar = ({setIsCollapOpen , isCollabOpen , color}) => {
   const [isOpen, setIsOpen] = useState(false);
   const greetings = ['hello', '你好', 'もしもし', 'hola'];
   const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
@@ -48,6 +49,9 @@ const Navbar = ({setIsCollapOpen , isCollabOpen}) => {
   const togglecollabsecion = () => {
     setIsCollapOpen(!isCollabOpen);
   };
+  const blackLogoSrc = 'https://twosqft.com/wp-content/uploads/2022/03/twosqft_black.png'
+  const whiteLogoSrc = 'https://twosqft.com/wp-content/uploads/2022/03/twosqft1.png'
+
   const navbarVariants = {
     open: { width: '100%' },
     closed: { width: '64px' },
@@ -69,18 +73,18 @@ const Navbar = ({setIsCollapOpen , isCollabOpen}) => {
       setCurrentGreetingIndex((prevIndex) => (prevIndex + 1) % greetings.length);
     }, 3500);
 
-    // Clear the timer when the component unmounts or when the greeting index changes
     return () => clearTimeout(timer);
   }, [currentGreetingIndex, greetings]);
   const transitionClass = "transition-transform duration-300 ease-in-out transform";
   return (
    <>
      <nav
-      className={`sticky flex text-white justify-between items-center p-12 fixed top-0 left-0 right-0 z-10`}
+      style={{color:color}}
+      className={`sticky flex sm:flex-row flex-col-reverse mx-10  lg:mx-0 md:mx-0 sm:flex text-white justify-between items-center p-12 fixed top-0 left-0 right-0 z-10`}
     >
       <div className="flex items-center">
         <motion.button
-          className="border nav-btn rounded-full p-3 w-32 mr-4 hover:bg-white hover:text-black transtion duration-300 flex items-center justify-around"
+          className={`border border-${color} nav-btn rounded-full p-3 w-32 mr-4 hover:bg-white hover:text-black transtion duration-300 flex items-center justify-around`}
           onClick={toggleMenu}
         >
           menu
@@ -92,15 +96,15 @@ const Navbar = ({setIsCollapOpen , isCollabOpen}) => {
       </div>
         <motion.img
           className="h-12 hover:scale-110 transition-transform cursor-pointer"
-          src={isOpen ? 'https://twosqft.com/wp-content/uploads/2022/03/twosqft1.png' : 'https://twosqft.com/wp-content/uploads/2022/03/twosqft1.png'}
+          src={color === 'black' ? blackLogoSrc : whiteLogoSrc}
           alt="Logo"
           initial="closed"
           animate={isOpen ? 'open' : 'closed'}
         />
 
-    <div className="flex">
+    <div className="sm:flex hidden">
     <motion.button
-      className="border nav-btn rounded-full p-3 w-40 mr-4 hover:bg-white hover:text-black transition duration-300 flex items-center justify-around"
+      className={`border border-${color} nav-btn rounded-full p-3 w-40 mr-4 hover:bg-white hover:text-black transition duration-300 flex items-center justify-around`}
       initial="closed"
       animate={isOpen ? 'open' : 'closed'}
     >
@@ -113,7 +117,7 @@ const Navbar = ({setIsCollapOpen , isCollabOpen}) => {
     </motion.button>
     <motion.button
             onClick={togglecollabsecion}
-          className="border nav-btn rounded-full w-12 flex flex-col hover:bg-white hover:text-black "
+          className={`border border-${color} nav-btn rounded-full w-12 flex flex-col hover:bg-white hover:text-black`}
     >
        <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +138,6 @@ const Navbar = ({setIsCollapOpen , isCollabOpen}) => {
 
     </motion.button>
     </div>
-    </nav>
         <AnimatePresence>
         {isCollabOpen && (
           <motion.div
@@ -172,15 +175,15 @@ const Navbar = ({setIsCollapOpen , isCollabOpen}) => {
             </div>
 
             <div className="flex space-x-4">
-            <a href="#" className="border rounded-full p-5 transtion duration-300 bg-black hover:bg-white hover:text-black">
+            <Link href="#" className="border rounded-full p-5 transtion duration-300 bg-black hover:bg-white hover:text-black">
                 <FontAwesomeIcon icon={faPinterest} />
-            </a>
-            <a href="#" className="border rounded-full p-5 transtion duration-300 bg-black hover:bg-white hover:text-black">
+            </Link>
+            <Link href="#" className="border rounded-full p-5 transtion duration-300 bg-black hover:bg-white hover:text-black">
                 <FontAwesomeIcon icon={faTwitter} />
-            </a>
-            <a href="#" className="border rounded-full p-5 transtion duration-300 bg-black hover:bg-white hover:text-black">
+            </Link>
+            <Link href="#" className="border rounded-full p-5 transtion duration-300 bg-black hover:bg-white hover:text-black">
                 <FontAwesomeIcon icon={faInstagram} />
-            </a>
+            </Link>
             </div>
            
             </div>
@@ -204,37 +207,37 @@ const Navbar = ({setIsCollapOpen , isCollabOpen}) => {
                 {isOpen ? <CustomXIcon /> : <CustomBurgerIcon />}
               </div>
             </motion.button>
-            <div className="flex justify-between pt-24 w-11/12 h-4/5">
-            <div className="flex flex-col z-50 m-5">
-              <a href="#home" className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Home</a>
-              <a href="#about" className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">About</a>
-              <a href="#services" className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Services</a>
-              <a href="#works" className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Works</a>
-              <a href="#discourses" className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Discourses</a>
-              <a href="#contact" className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Contact</a>
+            <div className="flex justify-between pt-24 w-11/12 h-3/5">
+            <div className="flex flex-col z-50 mx-5 h-full justify-center">
+              <Link onClick={()=>setIsOpen(false)} to={'*/'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Home</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'*/about'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">About</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'*/services'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Services</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'*/works'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Works</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'*/discourses'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Discourses</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'*/contact'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Contact</Link>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 p-24 w-2/1">
+            <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 h-full p-20 justify-center w-2/1">
 
-            <div className="p-4 rounded-lg">
+            <div className="p-4 text-white rounded-lg">
 
                 <h2 className="font-semibold text-gray-500 pb-5">India</h2>
                 <p>(+91) 8294373340</p>
                 <p>hello@twosqft.com</p>
             </div>
-            <div className="p-4 rounded-lg">
+            <div className="p-4 text-white rounded-lg">
                 <h2 className="font-semibold text-gray-500 pb-5">Info</h2>
                 <p>(+91) 8294373340</p>
                 <p>hello@twosqft.com</p>
             </div>
 
-            <div className="p-4 rounded-lg">
+            <div className="p-4 text-white rounded-lg">
 
                 <h2 className="font-semibold text-gray-500 pb-5">Find Us</h2>
                 <p>Twosqft, Baani Square,</p>
                 <p>Sector - 67 Gurugram, 120045</p>
             </div>
 
-            <div className="p-4 rounded-lg">
+            <div className="p-4 text-white rounded-lg">
 
                 <h2 className="font-semibold text-gray-500 pb-5">Social</h2>
                 <p>Pinterest</p>
@@ -266,6 +269,7 @@ const Navbar = ({setIsCollapOpen , isCollabOpen}) => {
           </motion.div>
         )}
       </AnimatePresence>
+    </nav>
    </>
   );
 };

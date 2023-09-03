@@ -1,10 +1,11 @@
 .nav-btn{
   border-color: #ffffff36
 }
-.main{
+.App{
   background-image: url('https://www.twosqft.com/wp-content/uploads/2022/03/patt.svg');
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
 }
+
 .toggled-menu{
   background-color: #1C1C1C;
 }
@@ -15,6 +16,36 @@
   background-size: 70% auto;
 
 }
+.wrapper img{
+  height: 35rem;
+  width: 100%;
+}
+/* Mobile Devices (e.g., smartphones) */
+@media screen and (max-width: 767px) {
+  .wrapper{
+    width: 100%;
+  }
+  .wrapper img{
+    height: 15rem;
+    width: 100%;
+  }
+  nav{
+    height: 13rem;
+  }
+}
+
+/* Tablet Devices (e.g., iPads and larger screens) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .wrapper{
+    display: flex;
+    align-items: center;
+  }
+  .wrapper img{
+    height: 20rem;
+    width: 100%;
+  }
+}
+
 @media (max-width: 1000px) {
   .collab{
     background-position: 60% 0%;
