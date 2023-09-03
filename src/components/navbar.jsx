@@ -1,10 +1,9 @@
-
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faChevronRight,faPhone, faEnvelope, faMapMarker } from '@fortawesome/free-solid-svg-icons';
 import { faPinterest, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
-
 import { motion , AnimatePresence} from 'framer-motion';
+import { Parallax } from 'react-scroll-parallax';
 
 const CustomBurgerIcon = () => (
         <svg
