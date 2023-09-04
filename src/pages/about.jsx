@@ -38,7 +38,7 @@ const imageUrls = [
   const Card = ({ data }) => {
     return (
       <div className="p-4 sm:w-[35%]">
-        <img src={data.imageUrl} alt="Project" className="w-full h-4/5" />
+        <img src={data.imageUrl} alt="Project" className="w-full" />
         <div className="text-center mt-4">
           <p className="text-7xl my-10 font-bold">{data.percentage}</p>
           <p className="text-gray-600 text-start">{data.description}</p>
@@ -61,7 +61,7 @@ useEffect(()=>{
       return () => clearInterval(intervalId);
 },[x])
 return (
-     <section className='space-y-5 overflow-hidden'>
+     <section className='space-y-5 pt-40'>
         <div className="title w-11/12 mx-auto mb-10 ">
             <span className="rounded-full p-1 text-sm px-3 bg-black text-white font-semibold">ABOUT US</span>
             <br />
@@ -104,7 +104,7 @@ return (
             </div>
             <div 
             style={{ transform: `translateX(${x}px)` }}
-            className="image-container mt-10 w-full flex space-x-12">
+            className="image-container mt-10 w-full flex space-x-12 overflow-x-hidden">
             {imageUrls.map((url, index) => (
                 <img
                 key={index}
@@ -178,7 +178,7 @@ Indulge in the brilliance of our design and engineering team, where innovation a
                 <p>ABOUt US</p>
                 <p>01</p>
          </div>
-        <div className="sm:flex space-x-5 mb-28">
+        <div className="sm:flex space-x-5 ">
             {data.map((el,index) => <Card key={index} data={el} />)}
         </div>
         </div>

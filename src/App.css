@@ -1,10 +1,19 @@
+body{
+  position: relative !important;
+  overflow: auto;
+}
 .nav-btn{
   border-color: #ffffff36
 }
+nav{
+  overflow: hidden;
+}
 .App{
+  overflow: hidden;
   background-image: url('https://www.twosqft.com/wp-content/uploads/2022/03/patt.svg');
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
 }
+
 .project-panner{
   background-position: center center;
   background-size: cover;

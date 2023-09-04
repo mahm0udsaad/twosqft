@@ -23,10 +23,10 @@ const TextAnimation = () => {
 
   return (
    <section>
-     <div className="flex flex-col">
-      <div  style={{ position: 'relative', height: '60vh' }}>
-        <Parallax translateY={['-70%', '70%']} className="z-20 leading-10 text-center sm:text-start text-5xl lg:text-8xl md:text-7xl text-white font-bold mx-auto lg:w-11/12">
-            <div className="sm:pl-24">
+     <div className="flex flex-col overflow-hidden">
+      <div  style={{ position: 'relative' }} className='h-[60vh] sm:h-[40vh]'>
+        <Parallax  translateY={["-80%", "80%"]} className="absolute leading-10 text-center sm:text-start text-5xl lg:text-8xl md:text-7xl text-white font-bold mx-auto lg:w-11/12">
+            <div className="sm:pl-24 z-40">
           <AnimatePresence>
             {isVisible.map((visible, index) => (
               index > 19 && index < 35 ?
@@ -51,7 +51,7 @@ const TextAnimation = () => {
             ))}
           </AnimatePresence>
             </div>
-          <div className="w-full flex justify-center pt-24">
+          <div className="w-full flex justify-center pt-5 sm:pt-24">
             <motion.button
               className="border nav-btn text-xl text-white rounded-full p-5 w-48 mr-4 hover:bg-white hover:text-black transition duration-300 flex items-center justify-around"
             >

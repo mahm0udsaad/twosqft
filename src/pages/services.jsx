@@ -91,7 +91,7 @@ function services() {
   return (
    <>
       <div>
-      <section className='space-y-5 pt-8 w-11/12 mx-auto'>
+      <section className='space-y-5 pt-40 w-11/12 mx-auto'>
       <div className="flex flex-col justify-between h-[40vh] title w-11/12 mx-auto mb-10 border-b-[1px] border-black">
            <div className="top">
            <span className="rounded-full p-1 text-sm px-3 bg-black text-white font-semibold">OUR SERVICES</span>

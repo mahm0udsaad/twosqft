@@ -78,11 +78,16 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color , hide}) => {
   const transitionClass = "transition-transform duration-300 ease-in-out transform";
   return (
    <>
-      <div className={`${hide} transtion duration-300`}>
-      <Parallax translateY={['-70%', '120%']} className={`absolute flex justify-center items-center h-screen top-0 right-0 text-${color}`}>
+      <div className={`${hide ? 'opacity-1':'opacity-0'} transtion duration-300`}>
+      </div>
+     <nav
+      style={{color:color}}
+      className={`${hide ? 'opacity-0':'opacity-1'} transtion duration-300 flex sm:flex-row flex-col-reverse sm:px-10  sm:flex text-white justify-between items-center p-5 lg:p-12 fixed top-0 left-0 right-0 z-10`}
+    >
+      <Parallax speed={-5} className={`fixed flex justify-center items-center h-screen top-0 right-0 text-${color}`}>
         <span className='-rotate-90 font-semibold'>scroll</span>
       </Parallax>
-      <Parallax  translateY={['-70%', '120%']} className={` absolute flex justify-start  h-screen items-center top-0 -left-16 sm:-left-12 text-${color}`}>
+      <Parallax  speed={-5} className={` fixed flex justify-start  h-screen items-center top-0 -left-16 sm:-left-12 text-${color}`}>
         <span className='-rotate-90 font-semibold flex items-center'>
           <div className="icon">
             <svg
@@ -104,11 +109,6 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color , hide}) => {
           Projects Index
         </span>
       </Parallax>
-      </div>
-     <nav
-      style={{color:color}}
-      className={`${hide} transtion duration-300 sticky flex sm:flex-row flex-col-reverse sm:px-10  sm:flex text-white justify-between items-center p-5 lg:p-12 fixed top-0 left-0 right-0 z-10`}
-    >
       <div className="flex items-center">
         <motion.button
           className={`border border-${color} nav-btn rounded-full p-3 w-32 sm:mr-4 hover:bg-white hover:text-black transtion duration-300 flex items-center justify-around`}
@@ -166,7 +166,7 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color , hide}) => {
         <AnimatePresence>
         {isCollabOpen && (
           <motion.div
-            className={`collab bg-white text-white absolute top-0 right-0 w-3/5 h-screen z-20 ${transitionClass}`}
+            className={`collab bg-white text-white fixed top-0 right-0 w-3/5 h-screen z-20 ${transitionClass}`}
             initial={{ translateX: '100%' ,opacity:0}}
             animate={{ translateX: '0%' ,opacity:1}}
             exit={{ translateX: '100%' ,opacity:0}}
@@ -219,7 +219,7 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color , hide}) => {
         <AnimatePresence>
         {isOpen && (
           <motion.div
-            className={`overflow-y-hidden toggled-menu text-black absolute top-0 left-0 w-full h-screen z-20 ${transitionClass}`}
+            className={`toggled-menu text-black fixed top-0 left-0 w-full h-screen z-20 ${transitionClass}`}
             initial={{ translateX: '-100%' ,opacity:0}}
             animate={{ translateX: '0%' ,opacity:1}}
             exit={{ translateX: '-100%' ,opacity:0}}

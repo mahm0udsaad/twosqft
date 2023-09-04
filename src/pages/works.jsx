@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ProjectCard } from "../components/typography";
 import { Link } from "react-router-dom";
+import { PageFooter } from "../components/footer";
 
 const Works =()=>{
     const projects = [
@@ -65,9 +66,9 @@ const Works =()=>{
           ]
         }
       ];
-      
     return (
-        <section>
+      <>
+        <section className="pt-36">
             <div className="flex flex-col justify-between h-[40vh] title w-11/12 mx-auto mb-10 border-b-[1px] border-black">
            <div className="top">
            <span className="rounded-full p-1 text-sm px-3 bg-black text-white font-semibold">OUR VISION</span>
@@ -76,7 +77,7 @@ const Works =()=>{
             <h1 className="font-semibold text-6xl sm:text-8xl">Works</h1>
            </div>
         </div>
-        <div className="grid sm:grid-cols-3 projects-container">
+        <div className="grid sm:grid-cols-3">
         {projects.map((project, index) => (
             <Link key={index} to={`/works/${index}`}>
                 <ProjectCard img={project.img} title={project.title} />
@@ -84,6 +85,8 @@ const Works =()=>{
         ))}
         </div>
         </section>
+        <PageFooter />
+      </>
     )
     }
     export default Works ;

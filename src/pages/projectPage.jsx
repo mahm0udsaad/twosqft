@@ -83,9 +83,9 @@ const ProjectDetails = () => {
   }
 
   return (
-    <section className='project-section h-screen absolute w-full top-0'>
-        <div className="title pt-40 w-3/5 flex flex-col justify-around h-full mx-10">
-        <h2 className='lg:text-9xl lg:font-semibold w-40'>{project.title}</h2>
+    <section className='project-section h-screen md:h-[70vh] absolute w-full top-0'>
+        <div className="title pt-40 w-11/12 sm:w-3/5 flex flex-col justify-around h-full mx-auto sm:mx-10">
+        <h2 className='sm:text-9xl text-7xl lg:font-semibold w-40'>{project.title}</h2>
         <div className="info">
         <p className='text-xl'>{project.description}</p>
         <ul className='flex grid grid-cols-3 mt-10'>
@@ -99,7 +99,7 @@ const ProjectDetails = () => {
         </div>
         </div>
         <div style={{backgroundImage:`url(${project.img})`}} className="project-panner h-[40vh]"></div>
-        <div className="w-3/5 text-center  mx-auto my-10 border-b-2">
+        <div className="sm:w-3/5 w-11/12 text-center  mx-auto my-10 border-b-2">
             <h1 className="text-5xl font-semibold">Hear from our clients</h1>
             <p className="text-xl my-10">Hub unleashed our business potential by maximising the innovation. Hub allows your business and technology computers to store and analyze. Thanks Hub!</p>
             <h4 className="text-xl pb-5">Alex Porad</h4>

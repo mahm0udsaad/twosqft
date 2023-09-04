@@ -48,10 +48,6 @@ function App() {
       setColor('white');
     }
   };
-  const handleScroll=(e)=>{
-    console.log(isScroll);
-  }
-
   useEffect(() => {
     if (location.pathname === '/') {
       setBg('rgb(28 28 28)');
@@ -64,6 +60,7 @@ function App() {
       setBg('white');
       setColor('black');
     }
+
   }, [location.pathname]);
 
  useEffect(() => {
@@ -76,19 +73,20 @@ function App() {
         setHideNav(''); 
       }, 200);
       
-      setHideNav('opacity-0'); 
+      setHideNav(true); 
     };
 
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.scroll(0,0)
     };
   }, []);
 
   return (  
     <>
-      <div className="App transtion duration-300 ease-out" style={{backgroundColor:bg}} onScroll={handleScroll}>
+      <div className="App transtion duration-300 ease-out" style={{backgroundColor:bg}} >
        <Navbar hide={hideNav} isCollabOpen={isCollabOpen} setIsCollapOpen={setIsCollapOpen} color={color}/>
        <div onClick={()=>setIsCollapOpen(false)}>
        <Routes>

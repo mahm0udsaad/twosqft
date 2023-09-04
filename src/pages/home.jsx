@@ -2,6 +2,7 @@ import { useState ,useEffect} from 'react'
 import '../App.css'
 import {Footer} from '../components/footer'
 import TextAnimation from '../components/header'
+import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs, faDraftingCompass, faClipboardList, faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { Parallax , useParallax ,useParallaxController} from 'react-scroll-parallax'
@@ -30,11 +31,10 @@ function Home({color }) {
       description: 'Harness the power of strategic management and impeccable execution to realize your project\'s vision.',
     },
   ];
- 
   return (  
     <>
       <div>
-      <section className='main'>
+      <section className='main pt-32'>
         <div className="main" onClick={()=>setIsCollapOpen(false)}>
         <TextAnimation />
         </div>
@@ -115,9 +115,13 @@ function Home({color }) {
           <div className="w-full border">
             <div className="corsule w-full sm:p-10">
              <div className="corsule-wrapper p-2 flex w-full">
-             <div className="wrapper w-1/2">
+             <motion.div
+             initial={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0% 50%)' }}
+             animate={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)' }}
+             transition={{ duration: 1 }} // Adjust the animation duration as needed       
+             className="wrapper w-1/2">
               <img src="https://www.twosqft.com/wp-content/uploads/2023/06/2.jpeg" alt="" />
-              </div>
+              </motion.div>
              <div className="wrapper w-1/2">
              <img src="https://www.twosqft.com/wp-content/uploads/2023/06/r1-1.png" alt="" />
              </div>
