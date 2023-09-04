@@ -80,11 +80,11 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color}) => {
    <>
      <nav
       style={{color:color}}
-      className={`sticky flex sm:flex-row flex-col-reverse mx-10  lg:mx-0 md:mx-0 sm:flex text-white justify-between items-center p-12 fixed top-0 left-0 right-0 z-10`}
+      className={`sticky flex sm:flex-row flex-col-reverse mx-10  sm:mx-0 sm:flex text-white justify-between items-center p-5 lg:p-12 fixed top-0 left-0 right-0 z-10`}
     >
       <div className="flex items-center">
         <motion.button
-          className={`border border-${color} nav-btn rounded-full p-3 w-32 mr-4 hover:bg-white hover:text-black transtion duration-300 flex items-center justify-around`}
+          className={`border border-${color} nav-btn rounded-full p-3 w-32 sm:mr-4 hover:bg-white hover:text-black transtion duration-300 flex items-center justify-around`}
           onClick={toggleMenu}
         >
           menu
@@ -134,8 +134,6 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color}) => {
         <circle cx="8" cy="6" r=".8" />
         <circle cx="16" cy="6" r=".8" />
         </svg>
-
-
     </motion.button>
     </div>
         <AnimatePresence>
@@ -161,17 +159,17 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color}) => {
         </motion.span>
       </motion.h2>                
       <div className="flex items-center text-xl space-x-2 text-black">
-                <FontAwesomeIcon icon={faPhone} className="text-blue-500" />
-                <span>(+91)8294373340</span>
-                </div>
-                <div className="flex items-center text-xl space-x-2 text-black">
-                <FontAwesomeIcon icon={faEnvelope} className="text-blue-500" />
-                <span>hello@twosqft.com</span>
-                </div>
-                <div className="flex items-center text-xl space-x-2 text-black">
-                <FontAwesomeIcon icon={faMapMarker} className="text-" />
-                <span>Twosqft, Baani Square, Sector -67 Gurugram, 120045</span>
-                </div>
+              <FontAwesomeIcon icon={faPhone} className="text-blue-500" />
+              <span>(+91)8294373340</span>
+              </div>
+              <div className="flex items-center text-xl space-x-2 text-black">
+              <FontAwesomeIcon icon={faEnvelope} className="text-blue-500" />
+              <span>hello@twosqft.com</span>
+              </div>
+              <div className="flex items-center text-xl space-x-2 text-black">
+              <FontAwesomeIcon icon={faMapMarker} className="text-" />
+              <span>Twosqft, Baani Square, Sector -67 Gurugram, 120045</span>
+              </div>
             </div>
 
             <div className="flex space-x-4">
@@ -209,12 +207,12 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color}) => {
             </motion.button>
             <div className="flex justify-between pt-24 w-11/12 h-3/5">
             <div className="flex flex-col z-50 mx-5 h-full justify-center">
-              <Link onClick={()=>setIsOpen(false)} to={'*/'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Home</Link>
-              <Link onClick={()=>setIsOpen(false)} to={'*/about'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">About</Link>
-              <Link onClick={()=>setIsOpen(false)} to={'*/services'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Services</Link>
-              <Link onClick={()=>setIsOpen(false)} to={'*/works'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Works</Link>
-              <Link onClick={()=>setIsOpen(false)} to={'*/discourses'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Discourses</Link>
-              <Link onClick={()=>setIsOpen(false)} to={'*/contact'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Contact</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'/'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Home</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'/about'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">About</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'/services'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Services</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'/works'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Works</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'/discourses'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Discourses</Link>
+              <Link onClick={()=>setIsOpen(false)} to={'/contact'} className="nav-link text-5xl pt-5 text-gray-300 transtion  hover:text-white">Contact</Link>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 h-full p-20 justify-center w-2/1">
 

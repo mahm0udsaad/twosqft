@@ -1,22 +1,11 @@
 import { useState ,useEffect} from 'react'
 import '../App.css'
-import Footer from '../components/footer'
+import {Footer} from '../components/footer'
 import TextAnimation from '../components/header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs, faDraftingCompass, faClipboardList, faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { Parallax , useParallax ,useParallaxController} from 'react-scroll-parallax'
-
-const ContentSquare = ({ number, title, description }) => {
-  return (
-    <div className="border border-black p-4 text-center">
-      <div className="flex items-center space-x-2">
-      <div className="text-4xl font-bold">{number}</div>
-      <div className="text-xl font-bold">/{title}</div>
-      </div>
-      <p className='pt-5'>{description}</p>
-    </div>
-  );
-};
+import { ContentSquare} from '../components/content';
 
 function Home() {
   const [bg,setBg] = useState(`rgb(28 28 28)`)
@@ -29,7 +18,6 @@ function Home() {
     } else if(scrollY > 4500){
       setBg('#d7dedc');
       setColor('black');
-      console.log(scrollY);
     }else if (scrollY > 3500) {
       setBg('#072326');
       setColor('white');
@@ -42,6 +30,7 @@ function Home() {
     }
   };
   useEffect(() => {
+
     // Add an event listener for the scroll event
     window.addEventListener('scroll', listenScrollEvent);
 
@@ -107,9 +96,9 @@ function Home() {
         </div>
       </section>
       <section >
-        <div className="w-full mx-auto">
-        <div className="sm:flex text-black sm:mx-auto p-5 justify-between">
-          <div className=" lab sm:w-1/2 text-4xl">
+        <div className="w-full  mx-auto">
+        <div className="sm:flex w-11/12 text-black sm:mx-auto p-5 justify-between">
+          <div className="lab sm:w-1/2 text-4xl">
             <p className='text-xl'>OUR PROJECTS</p>
             <i>design , construct , transcend-</i><br />
             <h2 className="text-4xl font-bold">beyond square footage</h2>
@@ -243,24 +232,32 @@ function Home() {
             </div>
           </div>
           <div className="sm:flex pt-20">
-            <h1 className='text-5xl mx-20 pt-5 sm:mb-0 mb-10'>Process</h1>
+            <h1 className='text-5xl mx-20 pt-5 sm:mb-0 mb-10 text-ce'>Process</h1>
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             <ContentSquare
+                border='border'
+                center='center'
                 number="01"
                 title="Program"
                 description="Gain a competitive edge in the real estate market with our game-changing project program, revolutionizing how projects are conceived and executed."
             />
             <ContentSquare
+                border='border'
+                center='center'
                 number="02"
                 title="Concept"
                 description="Redefine possibilities and bring your vision to life as we conceptualize your project with our cutting-edge design skills, setting the stage for a remarkable real estate masterpiece."
             />
             <ContentSquare
+                border='border'
+                center='center'
                 number="03"
                 title="Design"
                 description="Unlock the potential of your real estate project through the ingenuity of our skilled designers and engineers, who blend creativity and technical expertise to shape remarkable designs."
             />
             <ContentSquare
+                border='border'
+                center='center'
                 number="04"
                 title="Build"
                 description="Experience the art of construction precision with our seasoned civil engineers and construction managers, who bring expertise and meticulousness to every aspect of your real estate project."

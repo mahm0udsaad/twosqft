@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Parallax } from 'react-scroll-parallax';
-import ParallaxVideo from './video';
+import {ParallaxVideo} from './video';
 
 const TextAnimation = () => {
   const text = "We provide seamless design-to-build service to create endearing spaces";

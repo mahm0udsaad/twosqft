@@ -21,4 +21,17 @@ const ParallaxVideo = () => {
   );
 };
 
-export default ParallaxVideo;
+const FullScreenVideo =()=>{
+  return(
+    <div className="video relative mt-20 w-full h-[30rem]">
+      <iframe
+        src="https://www.youtube.com/embed/ymJA4Ak61oc?autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1"
+        title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowFullScreen
+        className="w-full h-full"
+      ></iframe>
+    </div>
+  )
+}
+export { ParallaxVideo, FullScreenVideo };

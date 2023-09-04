@@ -1,8 +1,7 @@
 import { useState ,useEffect} from 'react'
 import './App.css'
 import Navbar from './components/navbar'
-import Footer from './components/footer'
-import {Routes , Route} from 'react-router-dom'
+import {Routes , Route, useLocation} from 'react-router-dom'
 import Home from './pages/home'
 import About from './pages/about'
 import Works from './pages/works'
@@ -24,8 +23,10 @@ const ContentSquare = ({ number, title, description }) => {
 
 function App() {
   const [isCollabOpen, setIsCollapOpen] = useState(false);
-  const [bg,setBg] = useState(`rgb(28 28 28)`)
-  const [color,setColor] = useState(`white`)
+  const [bg,setBg] = useState(``)
+  const [color,setColor] = useState(``)
+  const location = useLocation()
+
   const listenScrollEvent = () => {
     const scrollY = window.scrollY;
     if(scrollY > 5300){
@@ -46,15 +47,21 @@ function App() {
       setColor('white');
     }
   };
-  useEffect(() => {
-    // Add an event listener for the scroll event
-    window.addEventListener('scroll', listenScrollEvent);
 
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('scroll', listenScrollEvent);
-    };
-  }, []);
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setBg('rgb(28 28 28)');
+      setColor('white');
+      window.addEventListener('scroll', listenScrollEvent);
+      return () => {
+        window.removeEventListener('scroll', listenScrollEvent);
+      };
+    } else {
+      // Set background to white on other pages
+      setBg('white');
+      setColor('black');
+    }
+  }, [location.pathname]);
 
   return (  
     <>
@@ -62,12 +69,12 @@ function App() {
        <Navbar isCollabOpen={isCollabOpen} setIsCollapOpen={setIsCollapOpen} color={color}/>
        <div onClick={()=>setIsCollapOpen(false)}>
        <Routes>
-          <Route path='/*' element={<Home/>} />
-          <Route path='/*/about' element={<About />} />
-          <Route path='/*/discourses' element={<Discourses />} />
-          <Route path='/*/contact' element={<Contact />} />
-          <Route path='/*/sevices' element={<Services />} />
-          <Route path='/*/works' element={<Works />} />
+          <Route path='*' element={<Home/>} />
+          <Route path='/about' element={<About />} />
+          <Route path='/discourses' element={<Discourses />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/sevices' element={<Services />} />
+          <Route path='/works' element={<Works />} />
         </Routes>
        </div>
       </div>
