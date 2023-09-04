@@ -1,4 +1,4 @@
-import { useState ,useEffect} from 'react'
+import { useState ,useEffect, useRef} from 'react'
 import './App.css'
 import Navbar from './components/navbar'
 import {Routes , Route, useLocation} from 'react-router-dom'
@@ -8,7 +8,7 @@ import Works from './pages/works'
 import Discourses from './pages/discourses'
 import Contact from './pages/contact'
 import Services from './pages/services'
-
+import ProjectDetails from './pages/projectPage'
 const ContentSquare = ({ number, title, description }) => {
   return (
     <div className="border border-black p-4 text-center">
@@ -24,19 +24,20 @@ const ContentSquare = ({ number, title, description }) => {
 function App() {
   const [isCollabOpen, setIsCollapOpen] = useState(false);
   const [bg,setBg] = useState(``)
+  const [hideNav,setHideNav] = useState('')
   const [color,setColor] = useState(``)
   const location = useLocation()
-
+  const [isScrolling, setIsScrolling] = useState(false);
   const listenScrollEvent = () => {
     const scrollY = window.scrollY;
+    
     if(scrollY > 5300){
       setBg('#ffff');
       setColor('black');
-    } else if(scrollY > 4500){
+    } else if(scrollY > 4800){
       setBg('#d7dedc');
       setColor('black');
-      console.log(scrollY);
-    }else if (scrollY > 3500) {
+    }else if (scrollY > 3800) {
       setBg('#072326');
       setColor('white');
     } else if (scrollY > 1000) {
@@ -47,6 +48,9 @@ function App() {
       setColor('white');
     }
   };
+  const handleScroll=(e)=>{
+    console.log(isScroll);
+  }
 
   useEffect(() => {
     if (location.pathname === '/') {
@@ -57,24 +61,44 @@ function App() {
         window.removeEventListener('scroll', listenScrollEvent);
       };
     } else {
-      // Set background to white on other pages
       setBg('white');
       setColor('black');
     }
   }, [location.pathname]);
 
+ useEffect(() => {
+    let scrollTimer;
+
+    const handleScroll = () => {
+      clearTimeout(scrollTimer);
+
+      scrollTimer = setTimeout(() => {
+        setHideNav(''); 
+      }, 200);
+      
+      setHideNav('opacity-0'); 
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (  
     <>
-      <div className="App transtion duration-300 ease-out" style={{backgroundColor:bg}}>
-       <Navbar isCollabOpen={isCollabOpen} setIsCollapOpen={setIsCollapOpen} color={color}/>
+      <div className="App transtion duration-300 ease-out" style={{backgroundColor:bg}} onScroll={handleScroll}>
+       <Navbar hide={hideNav} isCollabOpen={isCollabOpen} setIsCollapOpen={setIsCollapOpen} color={color}/>
        <div onClick={()=>setIsCollapOpen(false)}>
        <Routes>
-          <Route path='*' element={<Home/>} />
+          <Route path='*' element={<Home hide={hideNav} color={color}/>} />
           <Route path='/about' element={<About />} />
           <Route path='/discourses' element={<Discourses />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/sevices' element={<Services />} />
+          <Route path='/services' element={<Services />} />
           <Route path='/works' element={<Works />} />
+          <Route path='/works/:id' element={<ProjectDetails />} />
         </Routes>
        </div>
       </div>

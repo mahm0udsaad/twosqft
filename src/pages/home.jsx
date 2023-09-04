@@ -7,39 +7,7 @@ import { faCogs, faDraftingCompass, faClipboardList, faBuilding } from '@fortawe
 import { Parallax , useParallax ,useParallaxController} from 'react-scroll-parallax'
 import { ContentSquare} from '../components/content';
 
-function Home() {
-  const [bg,setBg] = useState(`rgb(28 28 28)`)
-  const [color,setColor] = useState(`white`)
-  const listenScrollEvent = () => {
-    const scrollY = window.scrollY;
-    if(scrollY > 5300){
-      setBg('#ffff');
-      setColor('black');
-    } else if(scrollY > 4500){
-      setBg('#d7dedc');
-      setColor('black');
-    }else if (scrollY > 3500) {
-      setBg('#072326');
-      setColor('white');
-    } else if (scrollY > 1000) {
-      setBg('white');
-      setColor('black');
-    } else {
-      setBg('rgb(28 28 28)');
-      setColor('white');
-    }
-  };
-  useEffect(() => {
-
-    // Add an event listener for the scroll event
-    window.addEventListener('scroll', listenScrollEvent);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('scroll', listenScrollEvent);
-    };
-  }, []);
-
+function Home({color }) {
   const serviceIcons = [
     {
       name: 'Site Analysis & Spatial Programming',
@@ -62,35 +30,11 @@ function Home() {
       description: 'Harness the power of strategic management and impeccable execution to realize your project\'s vision.',
     },
   ];
+ 
   return (  
     <>
       <div>
-      <section onScroll={listenScrollEvent}className='main'>
-      <Parallax translateY={['-70%', '120%']} className={`absolute flex justify-center items-center h-screen top-0 right-5 text-${color}`}>
-        <span className='-rotate-90 font-semibold'>scroll</span>
-      </Parallax>
-      <Parallax  translateY={['-70%', '120%']} className={`absolute flex justify-center items-center h-screen top-0 -left-5 text-${color}`}>
-        <span className='-rotate-90 font-semibold flex'>
-          <div className="icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-11 h-8 "
-            >
-              <circle cx="8" cy="12" r=".8" />
-              <circle cx="16" cy="12" r=".8" />
-              <circle cx="8" cy="6" r=".8" />
-              <circle cx="16" cy="6" r=".8" />
-            </svg>
-          </div>
-          Projects Index
-        </span>
-      </Parallax>
+      <section className='main'>
         <div className="main" onClick={()=>setIsCollapOpen(false)}>
         <TextAnimation />
         </div>
@@ -168,7 +112,7 @@ function Home() {
         <div className="border text-white py-3 border-b-0">
           <h1 className='text-center'>THROUGH A UNIQUE COMBINATION OF DESIGN AND ENGINEERING.</h1>
         </div>
-          <div className="h-screen w-full border">
+          <div className="w-full border">
             <div className="corsule w-full sm:p-10">
              <div className="corsule-wrapper p-2 flex w-full">
              <div className="wrapper w-1/2">
@@ -178,7 +122,7 @@ function Home() {
              <img src="https://www.twosqft.com/wp-content/uploads/2023/06/r1-1.png" alt="" />
              </div>
              </div>
-              <div className="sm:flex md:flex-col lg:flex-row pt-12">
+              <div className="sm:flex md:flex-col lg:flex-row pt-12 px-5">
                 <div className="flex flex-col  space-y-5 md:w-full md:text-center sm:w-1/2">
                 <p className="text-2xl">
                     Functional
@@ -188,7 +132,7 @@ function Home() {
                   </h1>
                   <p className='md:w-3/5 md:mx-auto'>Experience the perfect fusion of style and usability with our design approach, creating spaces that are both functional and user-friendly.</p>
                 </div>
-                 <div className="hidden mx-auto pt-10 sm:flex sm:w-1/2 justify-center space-x-8">
+                 <div className="mx-auto pt-10 sm:flex sm:w-1/2 justify-center">
                  <div>
                 <ul className='flex flex-col space-y-2 text-xl text-gray-300'>
                   <li>Structural Design</li>

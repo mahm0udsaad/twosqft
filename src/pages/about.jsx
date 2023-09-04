@@ -37,7 +37,7 @@ const imageUrls = [
   ];
   const Card = ({ data }) => {
     return (
-      <div className="p-4 w-[35%]">
+      <div className="p-4 sm:w-[35%]">
         <img src={data.imageUrl} alt="Project" className="w-full h-4/5" />
         <div className="text-center mt-4">
           <p className="text-7xl my-10 font-bold">{data.percentage}</p>
@@ -74,12 +74,12 @@ return (
                 <p>ABOUt US</p>
                 <p>01</p>
             </div>
-             <div className="w-full mt-5">
+             <div className="w-full my-5">
              <span className="mt-5 rounded-full p-1 text-sm px-3 bg-black text-white font-semibold"> WHAT DO WE OFFER ?</span>
              </div>
-            <div className="w-full flex justify-between mt-10">
-             <div className="first font-semibold w-[33%]">
-            <h1 className="text-4xl pb-5">We offer comprehensive design and build solutions, providing end-to-end services for all your project needs.</h1>
+            <div className="w-full sm:flex justify-between mt-10">
+             <div className="first font-semibold sm:w-[33%]">
+            <h1 className="text-2xl sm:text-4xl pb-5">We offer comprehensive design and build solutions, providing end-to-end services for all your project needs.</h1>
              <ul className="flex space-x-2">
                 <li>★</li>
                 <li>★</li>
@@ -88,7 +88,7 @@ return (
                 <li>★</li>
              </ul>
              </div>
-             <div className="midd text-3xl font-semibold">
+             <div className="midd text-xl my-5 sm:text-3xl font-semibold">
                 <ul>
                     <li>Architectural Design</li>
                     <li>MEP Design</li>
@@ -98,7 +98,7 @@ return (
                     <li></li>
                 </ul>
              </div>
-             <div className="last w-[30%]">
+             <div className="last sm:w-[30%]">
                 <p>Experience the ultimate convenience and expertise with our full-service design and build company. Our dedicated team takes charge of every aspect of your project, ensuring a seamless journey from start to finish. From the initial conceptualization to the final completion, we handle it all, allowing you to embrace a stress-free experience. With our meticulous oversight, your vision transforms into reality, delivering exceptional results at every step.</p>
              </div>
             </div>
@@ -109,7 +109,7 @@ return (
                 <img
                 key={index}
                 src={url}
-                className={index % 2 !== 0 ? 'w-[20rem]' : 'w-[20rem] mt-10 h-[20rem]'}
+                className={index % 2 !== 0 ? 'w-48 sm:w-[20rem]' : 'w-12 sm:w-[20rem] mt-10 sm:h-[20rem]'}
                 />
             ))}
             </div>
@@ -139,7 +139,7 @@ return (
              </div>
           </div>
         </div>
-        <div className="w-full flex justify-between">
+        <div className="w-full hidden sm:flex justify-between">
             <div className="w-1/2  relative">
                 <Parallax
                 translateY={['0%', '10%']}
@@ -178,7 +178,7 @@ Indulge in the brilliance of our design and engineering team, where innovation a
                 <p>ABOUt US</p>
                 <p>01</p>
          </div>
-        <div className="flex space-x-5 mb-28">
+        <div className="sm:flex space-x-5 mb-28">
             {data.map((el,index) => <Card key={index} data={el} />)}
         </div>
         </div>

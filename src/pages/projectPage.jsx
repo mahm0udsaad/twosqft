@@ -1,8 +1,7 @@
-import { useEffect } from "react";
-import { ProjectCard } from "../components/typography";
-import { Link } from "react-router-dom";
-
-const Works =()=>{
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { PageFooter } from '../components/footer';
+const ProjectDetails = () => {
     const projects = [
         {
           title: 'Matrya Cafeteria',
@@ -65,25 +64,49 @@ const Works =()=>{
           ]
         }
       ];
-      
-    return (
-        <section>
-            <div className="flex flex-col justify-between h-[40vh] title w-11/12 mx-auto mb-10 border-b-[1px] border-black">
-           <div className="top">
-           <span className="rounded-full p-1 text-sm px-3 bg-black text-white font-semibold">OUR VISION</span>
-            <br />
-            <i className="text-6xl sm:text-8xl font-semibold">Recent</i>
-            <h1 className="font-semibold text-6xl sm:text-8xl">Works</h1>
-           </div>
-        </div>
-        <div className="grid sm:grid-cols-3 projects-container">
-        {projects.map((project, index) => (
-            <Link key={index} to={`/works/${index}`}>
-                <ProjectCard img={project.img} title={project.title} />
-            </Link>
-        ))}
-        </div>
-        </section>
-    )
+
+  const { id } = useParams();
+  const projectId = parseInt(id);
+
+  const [project, setProject] = useState(null);
+
+  useEffect(() => {
+    if (projectId >= 0 && projectId < projects.length) {
+      setProject(projects[projectId]);
+    } else {
+      setProject(null);
     }
-    export default Works ;
+}, []);
+
+  if (!project) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <section className='project-section h-screen absolute w-full top-0'>
+        <div className="title pt-40 w-3/5 flex flex-col justify-around h-full mx-10">
+        <h2 className='lg:text-9xl lg:font-semibold w-40'>{project.title}</h2>
+        <div className="info">
+        <p className='text-xl'>{project.description}</p>
+        <ul className='flex grid grid-cols-3 mt-10'>
+            {project.info.map((item, index) => (
+            <li 
+            key={index}>
+                <p className='text-gray-400'>{Object.keys(item)[0]}</p> {Object.values(item)[0]}
+            </li>
+            ))}
+        </ul>
+        </div>
+        </div>
+        <div style={{backgroundImage:`url(${project.img})`}} className="project-panner h-[40vh]"></div>
+        <div className="w-3/5 text-center  mx-auto my-10 border-b-2">
+            <h1 className="text-5xl font-semibold">Hear from our clients</h1>
+            <p className="text-xl my-10">Hub unleashed our business potential by maximising the innovation. Hub allows your business and technology computers to store and analyze. Thanks Hub!</p>
+            <h4 className="text-xl pb-5">Alex Porad</h4>
+        </div>
+        <PageFooter />
+    </section>
+  );
+};
+
+export default ProjectDetails;
