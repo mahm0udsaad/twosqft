@@ -9,6 +9,7 @@ import { Parallax , useParallax ,useParallaxController} from 'react-scroll-paral
 import { ContentSquare} from '../components/content';
 
 function Home({color }) {
+  
   const serviceIcons = [
     {
       name: 'Site Analysis & Spatial Programming',
@@ -34,7 +35,7 @@ function Home({color }) {
   return (  
     <>
       <div>
-      <section className='main pt-32'>
+      <section className='main ' style={{backgroundColor:bg}}>
         <div className="main" onClick={()=>setIsCollapOpen(false)}>
         <TextAnimation />
         </div>

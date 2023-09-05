@@ -4,7 +4,7 @@ import { faPinterest, faTwitter, faInstagram } from '@fortawesome/free-brands-sv
 
 const Footer =()=>{
     return(
-        <div style={{background:'rgb(28 28 28)'}} className="text-white mt-5 p-3 sm:p-10 sm:h-[60vh] App">
+        <div style={{background:'rgb(28 28 28)'}} className="text-white mt-5 p-3 sm:p-10 App">
            <div className="flex">
             <div className="w-full">
                <div className="title">
@@ -19,7 +19,7 @@ const Footer =()=>{
                </div>
             </div>
            </div>
-           <footer className="sm:p-4 text-white">
+           <footer className="text-white">
             <div className="border-t border-gray-400 my-4"></div>
             <div className="flex justify-between items-center">
             <div className="flex sm:pr-0 pr-5 sm:space-x-4">
@@ -43,7 +43,7 @@ const Footer =()=>{
 }
 const PageFooter = () =>{
     return(
-        <div style={{background:'rgb(28 28 28)'}} className="text-white mt-5 p-3 sm:p-10 sm:h-[60vh] App">
+        <div style={{background:'rgb(28 28 28)'}} className="text-white mt-5 p-3 sm:p-10 App">
            <div className="flex">
             <div className="w-full">
                <div className="title">

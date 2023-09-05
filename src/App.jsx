@@ -56,7 +56,10 @@ function App() {
       return () => {
         window.removeEventListener('scroll', listenScrollEvent);
       };
-    } else {
+    }else if (location.pathname === '/descourses'){
+      setBg('gray')
+      setColor('black')
+    }else{
       setBg('white');
       setColor('black');
     }
@@ -86,7 +89,7 @@ function App() {
 
   return (  
     <>
-      <div className="App transtion duration-300 ease-out" style={{backgroundColor:bg}} >
+      <div className="App transtion duration-300 ease-out overflow-x-hidden" style={{backgroundColor:bg}} >
        <Navbar hide={hideNav} isCollabOpen={isCollabOpen} setIsCollapOpen={setIsCollapOpen} color={color}/>
        <div onClick={()=>setIsCollapOpen(false)}>
        <Routes>

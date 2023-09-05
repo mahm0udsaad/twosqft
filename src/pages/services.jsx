@@ -91,7 +91,7 @@ function services() {
   return (
    <>
       <div>
-      <section className='space-y-5 pt-40 w-11/12 mx-auto'>
+      <section className='services space-y-5 pt-28 lg:pt-28 w-11/12 mx-auto'>
       <div className="flex flex-col justify-between h-[40vh] title w-11/12 mx-auto mb-10 border-b-[1px] border-black">
            <div className="top">
            <span className="rounded-full p-1 text-sm px-3 bg-black text-white font-semibold">OUR SERVICES</span>
@@ -101,7 +101,7 @@ function services() {
            </div>
            <span>01</span>
         </div>
-      <div className="grid sm:grid-cols-3 space-y-5 mb-5">
+      <div className="grid md:grid-cols-1 sm:grid-cols-2 space-y-5 mb-5">
       <div className="title sm:w-[80%]">
       <span className="my-5 rounded-full p-1 text-sm w-28 bg-gray-200 text-black font-semibold flex justify-center">SERVICE</span>
       <h1 className="text-3xl font-semibold">We offer comprehensive design and build solutions, providing end-to-end services for all your project needs.</h1>  
@@ -117,6 +117,7 @@ function services() {
              </ul>
       </div>
       </div>
+      <div className="flex w-full">
       <ul className='text-3xl space-y-2 sm:space-y-5'>
                 <li>Projects</li>
                 <li>Sustainability</li>
@@ -125,8 +126,9 @@ function services() {
                 <li>The Building Process</li>
                 <li>Research-Development</li>
               </ul>
-      <div className="parag sm:w-64">
+      <div className="parag sm:w-1/2 mx-auto text-xl leading-9">
       We provide clients with comprehensive design and build solutions, ensuring seamless processes from concept to execution. Our experienced team delivers exceptional results, upholding the highest standards of quality and craftsmanship. With end-to-end services, we guarantee client satisfaction in designing spaces and constructing structures. Trust our professionalism and expertise for your project needs.
+      </div>
       </div>
       </div>
       </section>

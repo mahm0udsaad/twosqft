@@ -8,7 +8,7 @@ const TextAnimation = () => {
   const [isVisible, setIsVisible] = useState(Array(text.length).fill(false));
 
   useEffect(() => {
-    const delay = 40;
+    const delay = 50;
 
     text.split('').forEach((_, index) => {
       setTimeout(() => {
@@ -17,16 +17,16 @@ const TextAnimation = () => {
           updatedVisibility[index] = true;
           return updatedVisibility;
         });
-      }, index * delay);
+      }, index * delay / 2);
     });
   }, []);
 
   return (
    <section>
-     <div className="flex flex-col overflow-hidden">
-      <div  style={{ position: 'relative' }} className='h-[60vh] sm:h-[40vh]'>
-        <Parallax  translateY={["-80%", "80%"]} className="absolute leading-10 text-center sm:text-start text-5xl lg:text-8xl md:text-7xl text-white font-bold mx-auto lg:w-11/12">
-            <div className="sm:pl-24 z-40">
+     <div className="flex flex-col">
+      <div  style={{ position: 'relative' }} className='h-[50vh]'>
+        <Parallax  translateY={["-70%", "80%"]} className="absolute leading-10 text-center text-5xl lg:text-8xl md:text-5xl text-white font-bold mx-auto lg:w-full">
+            <div className="mx-auto w-5/6 z-40 text-center">
           <AnimatePresence>
             {isVisible.map((visible, index) => (
               index > 19 && index < 35 ?
@@ -35,7 +35,7 @@ const TextAnimation = () => {
                   className='underline'
                   initial={{ opacity: 0 }}
                   animate={{ opacity: visible ? 1 : 0 }}
-                  exit={{ opacity: 0 }}
+                  transition={{duration:1}}
                 >
                   {text[index]}
                 </motion.span>
@@ -44,20 +44,20 @@ const TextAnimation = () => {
                   key={index}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: visible ? 1 : 0 }}
-                  exit={{ opacity: 0 }}
+                  transition={{duration:1}}
                 >
                   {text[index]}
                 </motion.span>
             ))}
-          </AnimatePresence>
-            </div>
-          <div className="w-full flex justify-center pt-5 sm:pt-24">
+          <div className="w-full flex justify-center pt-5 sm:pt-20">
             <motion.button
-              className="border nav-btn text-xl text-white rounded-full p-5 w-48 mr-4 hover:bg-white hover:text-black transition duration-300 flex items-center justify-around"
+              className="border nav-btn text-xl text-white rounded-full p-5 w-52  hover:bg-white hover:text-black transition duration-300 flex items-center justify-around"
             >
               Continue
             </motion.button>
           </div>
+          </AnimatePresence>
+            </div>
         </Parallax>
       </div>
       <ParallaxVideo />

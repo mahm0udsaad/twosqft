@@ -82,7 +82,7 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color , hide}) => {
       </div>
      <nav
       style={{color:color}}
-      className={`${hide ? 'opacity-0':'opacity-1'} transtion duration-300 flex sm:flex-row flex-col-reverse sm:px-10  sm:flex text-white justify-between items-center p-5 lg:p-12 fixed top-0 left-0 right-0 z-10`}
+      className={`${hide ? 'opacity-0':'opacity-1'} font-semibold transtion duration-300 flex sm:flex-row flex-col-reverse sm:px-10  sm:flex text-white justify-between items-center px-5 lg:p-12 fixed top-0 left-0 right-0 z-10`}
     >
       <Parallax speed={-5} className={`fixed flex justify-center items-center h-screen top-0 right-0 text-${color}`}>
         <span className='-rotate-90 font-semibold'>scroll</span>
@@ -111,7 +111,7 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color , hide}) => {
       </Parallax>
       <div className="flex items-center">
         <motion.button
-          className={`border border-${color} nav-btn rounded-full p-3 w-32 sm:mr-4 hover:bg-white hover:text-black transtion duration-300 flex items-center justify-around`}
+          className={`border border-gray-400  border-${color} nav-btn rounded-full p-3 w-32 sm:mr-4 hover:bg-white hover:text-black transtion duration-300 flex items-center justify-around`}
           onClick={toggleMenu}
         >
           menu
@@ -131,7 +131,7 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color , hide}) => {
 
     <div className="sm:flex hidden">
     <motion.button
-      className={`border border-${color} nav-btn rounded-full p-3 w-40 mr-4 hover:bg-white hover:text-black transition duration-300 flex items-center justify-around`}
+      className={`border border-gray-400 border-${color} nav-btn rounded-full p-3 w-40 mr-4 hover:bg-white hover:text-black transition duration-300 flex items-center justify-around`}
       initial="closed"
       animate={isOpen ? 'open' : 'closed'}
     >
@@ -144,7 +144,7 @@ const Navbar = ({setIsCollapOpen , isCollabOpen , color , hide}) => {
     </motion.button>
     <motion.button
             onClick={togglecollabsecion}
-          className={`border border-${color} nav-btn rounded-full w-12 flex flex-col hover:bg-white hover:text-black`}
+          className={`border  border-gray-400 border-${color} nav-btn rounded-full w-12 flex flex-col hover:bg-white hover:text-black`}
     >
        <svg
         xmlns="http://www.w3.org/2000/svg"

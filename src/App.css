@@ -1,6 +1,7 @@
 body{
   position: relative !important;
   overflow: auto;
+  scroll-behavior: smooth;
 }
 .nav-btn{
   border-color: #ffffff36
@@ -9,11 +10,13 @@ nav{
   overflow: hidden;
 }
 .App{
-  overflow: hidden;
+  scroll-behavior: smooth;
   background-image: url('https://www.twosqft.com/wp-content/uploads/2022/03/patt.svg');
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
 }
-
+.leading-10 div{
+  line-height: 1;
+}
 .project-panner{
   background-position: center center;
   background-size: cover;
@@ -78,8 +81,29 @@ iframe .ytp-chrome-top{
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .collab{
     background-position: 60% 0%;
+  }
+  .leading-10 span{
+    font-size: 4rem;
+  }
+  footer{
+    height: auto;
+  }
+  .services{
+    padding-top: 2rem !important;
+  }
+  .grid{
+    display: block;
+  }
+}
+
+@media (max-height: 600px) {
+  .services{
+    padding-top: 7rem !important;
+  }
+  nav .nav-link{
+    font-size: 2.2rem;
   }
 }
