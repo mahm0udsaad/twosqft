@@ -23,7 +23,7 @@ const ContentSquare = ({ number, title, description }) => {
 
 function App() {
   const [isCollabOpen, setIsCollapOpen] = useState(false);
-  const [bg,setBg] = useState(``)
+  const [bg,setBg] = useState(`rgb(28 28 28)`)
   const [hideNav,setHideNav] = useState('')
   const [color,setColor] = useState(``)
   const location = useLocation()
